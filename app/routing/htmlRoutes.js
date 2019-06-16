@@ -1,8 +1,6 @@
-/*var express = require('express');
-
-var app = express();
-
-app.get('/survey', (req, res, next) =>{
-    res.send('/survey.html');
-    //default catch-all that leads to home.html
-})*/
+module.exports = function(app) {
+    app.get('/survey', (req, res, next) =>{
+        res.render('public/survey.html');
+        //default catch-all that leads to home.html
+    })
+}

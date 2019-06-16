@@ -1,11 +1,9 @@
-/*var express = require('express');
+module.exports = function(app) {
+    app.get('/api/friends', (req, res, next) => {
 
-var app = express();
-
-app.get('/api/friends', (req, res, next) => {
- app.json();
 })
 
 app.post('/api/friends', (req,res,next) =>{
-
-})*/
+    console.log(req.body);
+})
+}

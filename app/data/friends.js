@@ -1,4 +1,5 @@
 var resultsObject = {};
+
 $('form').submit(function(event){
     var results = $(this).serializeArray();
     event.preventDefault();
@@ -23,6 +24,7 @@ function checkValues(resultsArray){
         }
     }
     resultsObject["scores"]= scores;
+    $.ajax("/api/friends", {body: resultsObject});
     return resultsObject;
 }
 
