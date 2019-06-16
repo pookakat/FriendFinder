@@ -1,3 +1,4 @@
+var userArray=[];
 $('form').submit(function(event){
     var results = $(this).serializeArray();
     event.preventDefault();

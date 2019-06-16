@@ -11,6 +11,7 @@ module.exports = function(app) {
     })
 
     app.post('/api/friends', (req,res,next) =>{
-        console.log(req.body);
+        var newUser = req.body;
+        console.log(newUser);
     })
 }
