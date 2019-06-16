@@ -1,14 +1,13 @@
-var resultsObject = {};
-
 $('form').submit(function(event){
     var results = $(this).serializeArray();
     event.preventDefault();
    resultsObject = checkValues(results);
-   console.log(resultsObject);
+   $.post("/api/friends", resultsObject);
    return false;
 });
 
 function checkValues(resultsArray){
+    var resultsObject = {};
     var scores = [];
     for(var arrayCount = 0; arrayCount<resultsArray.length; arrayCount++){
         if (resultsArray[arrayCount].value===""){
@@ -25,12 +24,9 @@ function checkValues(resultsArray){
         }
     }
     resultsObject["scores"]= scores;
-    $.ajax({
-        type: "POST",
-        url: "/api/friends", 
-        data : resultsObject,
-    });
     return resultsObject;
 }
+
+
 
 
