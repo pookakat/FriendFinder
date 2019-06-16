@@ -5,6 +5,7 @@ $('form').submit(function(event){
     event.preventDefault();
    resultsObject = checkValues(results);
    console.log(resultsObject);
+   return false;
 });
 
 function checkValues(resultsArray){
@@ -24,7 +25,11 @@ function checkValues(resultsArray){
         }
     }
     resultsObject["scores"]= scores;
-    $.ajax("/api/friends", {body: resultsObject});
+    $.ajax({
+        type: "POST",
+        url: "/api/friends", 
+        data : resultsObject,
+    });
     return resultsObject;
 }
 

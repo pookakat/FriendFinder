@@ -1,6 +1,10 @@
+var express = require('express');
+var path = require('path');
 module.exports = function(app) {
+    app.get('/home', (req, res, next) =>{
+        res.sendFile('home.html', {root: path.join(__dirname, "../public")});
+    })
     app.get('/survey', (req, res, next) =>{
-        res.render('public/survey.html');
-        //default catch-all that leads to home.html
+        res.sendFile('survey.html', {root: path.join(__dirname, "../public")});
     })
 }
