@@ -1,4 +1,4 @@
-var express = require('express');
+/*var express = require('express');
 
 var app = express();
 
@@ -7,5 +7,5 @@ app.get('/api/friends', (req, res, next) => {
 })
 
 app.post('/api/friends', (req,res,next) =>{
-    
-})
+
+})*/
