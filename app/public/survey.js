@@ -2,9 +2,10 @@ var userArray=[];
 $('form').submit(function(event){
     var results = $(this).serializeArray();
     event.preventDefault();
-   resultsObject = checkValues(results);
+    var resultsObject = checkValues(results);
+    checkMatch(resultsObject);
    $.post("/api/friends", resultsObject);
-   return false;
+    return false;
 });
 
 function checkValues(resultsArray){
@@ -26,6 +27,12 @@ function checkValues(resultsArray){
     }
     resultsObject["scores"]= scores;
     return resultsObject;
+}
+
+function checkMatch(resultsObject){
+    $.get("/api/getMatch", resultsObject, function(data){
+        console.log(data);
+    });
 }
 
 
