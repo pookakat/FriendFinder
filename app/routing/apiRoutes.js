@@ -27,7 +27,6 @@ module.exports = function(app) {
                 var matchScore = parseInt(matchUser["scores[]"][scoreCount]);
                 var userScore = parseInt(user.scores[scoreCount]);
                 totalScore += Math.abs(matchScore-userScore);
-                console.log(totalScore);
             }
             if (totalScore < currentScore){
                 currentScore = totalScore;
@@ -39,7 +38,6 @@ module.exports = function(app) {
 
     app.post('/api/friends', (req,res,next) =>{
         var newUser = req.body;
-        console.log(friends);
         friends.push(newUser);
         fs.writeFileSync(path.join(__dirname, "../data/friends.js"), "module.exports = " + JSON.stringify(friends));
         });

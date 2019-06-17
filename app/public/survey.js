@@ -21,20 +21,24 @@ function checkValues(resultsArray){
             }
             else{
                 scores.push(resultsArray[arrayCount].value);
-            }
-        }
-    }
+            };
+        };
+    };
     resultsObject["scores"]= scores;
     return resultsObject;
-}
+};
 
 function checkMatch(resultsObject){
     $.get("/api/getMatch", resultsObject, function(data){
-        console.log(data);
+        renderModal(data);
         $.post("/api/friends", resultsObject);
     });
-}
+};
 
 
-
+function renderModal(friendStats){
+    $('#myModal').modal('show');
+    $('.modal-body').text(friendStats.name);
+    $('.modal-body').append(`<img src="${friendStats.photo}">`);
+};
 
