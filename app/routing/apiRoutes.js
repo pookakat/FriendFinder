@@ -31,10 +31,9 @@ module.exports = function(app) {
             }
             if (totalScore < currentScore){
                 currentScore = totalScore;
-                currentMatch = matchUser.name;
+                currentMatch = matchUser;
             }
         }
-        console.log("Be friends with " + currentMatch);
         res.send(currentMatch);
     });
 

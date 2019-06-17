@@ -4,7 +4,6 @@ $('form').submit(function(event){
     event.preventDefault();
     var resultsObject = checkValues(results);
     checkMatch(resultsObject);
-   $.post("/api/friends", resultsObject);
     return false;
 });
 
@@ -32,6 +31,7 @@ function checkValues(resultsArray){
 function checkMatch(resultsObject){
     $.get("/api/getMatch", resultsObject, function(data){
         console.log(data);
+        $.post("/api/friends", resultsObject);
     });
 }
 
