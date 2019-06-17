@@ -38,7 +38,12 @@ function checkMatch(resultsObject){
 
 function renderModal(friendStats){
     $('#myModal').modal('show');
+    if (friendsStats === ""){
+        $('.modal-body').text('As the first user, you are your own best friend!');
+    }
+    else{
     $('.modal-body').text(friendStats.name);
     $('.modal-body').append(`<img src="${friendStats.photo}">`);
+    }
 };
 
